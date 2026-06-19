@@ -105,6 +105,46 @@
         .nav-link:hover:after {
             width: 100%;
         }
+        
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            width: 56px;
+            height: 56px;
+            background-color: #25D366;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .whatsapp-fab:hover {
+            transform: scale(1.08);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.3);
+        }
+        
+        .whatsapp-fab .tooltip {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            background: #111827;
+            color: white;
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+        
+        .whatsapp-fab:hover .tooltip {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 overflow-x-hidden">
@@ -184,7 +224,7 @@
         </div>
     </header>
 
-    <!-- ABOUT / WHY IT MATTERS -->
+    <!-- ABOUT -->
     <section id="about" class="max-w-7xl mx-auto px-6 py-20">
         <div class="grid md:grid-cols-12 gap-x-12 items-center">
             <div class="md:col-span-5 mb-12 md:mb-0">
@@ -199,7 +239,7 @@
         </div>
     </section>
 
-    <!-- SERVICES / FEATURES -->
+    <!-- SERVICES -->
     <section id="services" class="bg-white py-20 border-t border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-14">
@@ -208,7 +248,6 @@
             </div>
             
             <div class="grid md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
                 <div class="depth-card p-8">
                     <div class="w-14 h-14 bg-lime-100 rounded-2xl flex items-center justify-center mb-6">
                         <i class="fa-solid fa-palette text-lime-600 text-3xl"></i>
@@ -217,7 +256,6 @@
                     <p class="text-slate-600">Choose your wood tone, number style, finish, lighting, and add-ons like planter boxes or decorative panels. No catalog options — every mailbox is built to your exact vision.</p>
                 </div>
                 
-                <!-- Card 2 -->
                 <div class="depth-card p-8">
                     <div class="w-14 h-14 bg-lime-100 rounded-2xl flex items-center justify-center mb-6">
                         <i class="fa-solid fa-tree text-lime-600 text-3xl"></i>
@@ -226,7 +264,6 @@
                     <p class="text-slate-600">Naturally rot-resistant and beautifully aged — our high-grade Western Red Cedar looks stunning for decades with almost zero upkeep. This is wood built to outlast trends.</p>
                 </div>
                 
-                <!-- Card 3 -->
                 <div class="depth-card p-8">
                     <div class="w-14 h-14 bg-lime-100 rounded-2xl flex items-center justify-center mb-6">
                         <i class="fa-solid fa-laptop text-lime-600 text-3xl"></i>
@@ -235,7 +272,6 @@
                     <p class="text-slate-600">You receive photorealistic renders of your mailbox in front of your actual home — not a generic preview. If anything needs adjusting, we revise until it's perfect. Only then do we build.</p>
                 </div>
                 
-                <!-- Card 4 NEW -->
                 <div class="depth-card p-8">
                     <div class="w-14 h-14 bg-lime-100 rounded-2xl flex items-center justify-center mb-6">
                         <i class="fa-solid fa-tools text-lime-600 text-3xl"></i>
@@ -357,34 +393,89 @@
         </div>
     </section>
 
-    <!-- CONTACT / FORM -->
+    <!-- CONTACT SECTION - UPDATED -->
     <section id="contact" class="bg-slate-900 text-white py-20 wood-texture">
-        <div class="max-w-3xl mx-auto px-6 text-center">
-            <div class="text-lime-400 font-semibold tracking-[2px] text-sm mb-3">LET'S GET STARTED</div>
-            <h2 class="text-5xl md:text-6xl font-bold tracking-tighter mb-6">Ready to see how it looks in front of your home?</h2>
-            <p class="text-xl text-slate-300 max-w-md mx-auto mb-10">Answer a few quick questions. We'll reply on WhatsApp within hours with a free design concept — no commitment required.</p>
-            
-            <form id="quote-form" onsubmit="handleQuoteSubmit(event)" class="max-w-lg mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <input type="text" id="name" placeholder="Full Name" required 
-                           class="px-6 py-4 bg-white/10 border border-white/20 rounded-2xl placeholder:text-white/60 text-white focus:outline-none focus:border-lime-400">
-                    <input type="tel" id="phone" placeholder="Phone Number" required 
-                           class="px-6 py-4 bg-white/10 border border-white/20 rounded-2xl placeholder:text-white/60 text-white focus:outline-none focus:border-lime-400">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <div class="text-lime-400 font-semibold tracking-[2px] text-sm mb-3">3 WAYS TO REACH US</div>
+                <h2 class="text-5xl md:text-6xl font-bold tracking-tighter mb-4">Ready to see how it looks in front of your home?</h2>
+                <p class="text-xl text-slate-300 max-w-2xl mx-auto">Pick the option that's easiest for you. We respond fast — usually same day.</p>
+            </div>
+
+            <!-- Three Contact Cards -->
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <!-- Card 1: Call -->
+                <div class="depth-card p-8 text-center">
+                    <div class="mx-auto w-16 h-16 bg-lime-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-phone text-lime-600 text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-2xl tracking-tight mb-3">Call Us</h3>
+                    <p class="text-slate-600 mb-6">Prefer to talk? Call us directly and we'll answer your questions on the spot.</p>
+                    <a href="tel:+12679053490" 
+                       class="inline-flex w-full items-center justify-center py-4 bg-lime-500 hover:bg-lime-600 transition-all text-white font-bold text-lg rounded-3xl shadow-lg shadow-lime-500/30">
+                        Call (267) 905-3490
+                    </a>
                 </div>
-                <input type="text" id="address" placeholder="Property Address or City" required 
-                       class="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl placeholder:text-white/60 text-white mb-4 focus:outline-none focus:border-lime-400">
-                
-                <textarea id="message" rows="5" placeholder="Tell us about your project..." required
-                          class="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-3xl placeholder:text-white/60 text-white mb-6 focus:outline-none focus:border-lime-400"></textarea>
-                
-                <button type="submit" 
-                        class="w-full py-4 bg-lime-500 hover:bg-lime-600 transition-all text-white font-bold text-xl rounded-3xl flex items-center justify-center gap-x-3 shadow-xl">
-                    <i class="fa-brands fa-whatsapp mr-2"></i> 
-                    SEND TO WHATSAPP
-                </button>
-                
-                <p class="text-xs text-slate-400 mt-4">We reply fast. Usually same day.</p>
-            </form>
+
+                <!-- Card 2: Text/SMS -->
+                <div class="depth-card p-8 text-center">
+                    <div class="mx-auto w-16 h-16 bg-lime-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-comment-dots text-lime-600 text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-2xl tracking-tight mb-3">Send a Text</h3>
+                    <p class="text-slate-600 mb-6">Quick and easy. Text us from your iPhone or Android — no app needed.</p>
+                    <a href="sms:+12679053490?body=Hi!%20I%27d%20like%20a%20free%20quote%20for%20a%20custom%20cedar%20mailbox." 
+                       class="inline-flex w-full items-center justify-center py-4 bg-lime-500 hover:bg-lime-600 transition-all text-white font-bold text-lg rounded-3xl shadow-lg shadow-lime-500/30">
+                        Text Us Now
+                    </a>
+                </div>
+
+                <!-- Card 3: Form -->
+                <div class="depth-card p-8 text-center">
+                    <div class="mx-auto w-16 h-16 bg-lime-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-clipboard-list text-lime-600 text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-2xl tracking-tight mb-3">Fill Out a Form</h3>
+                    <p class="text-slate-600 mb-6">Tell us about your project and we'll get back to you with a custom quote.</p>
+                    <button onclick="document.getElementById('quote-form-section').scrollIntoView({ behavior: 'smooth' })" 
+                            class="w-full py-4 bg-lime-500 hover:bg-lime-600 transition-all text-white font-bold text-lg rounded-3xl shadow-lg shadow-lime-500/30">
+                        Get My Free Quote
+                    </button>
+                </div>
+            </div>
+
+            <!-- FORM -->
+            <div id="quote-form-section" class="max-w-2xl mx-auto">
+                <form id="quote-form" onsubmit="handleQuoteSubmit(event)" class="bg-white/5 backdrop-blur border border-white/10 p-8 md:p-10 rounded-3xl">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-1.5">Full Name</label>
+                            <input type="text" id="name" placeholder="Your name" required 
+                                   class="w-full px-5 py-3.5 bg-white/10 border border-white/20 focus:border-lime-400 rounded-2xl outline-none text-white placeholder:text-white/50">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-1.5">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="(614) 000-0000" required 
+                                   class="w-full px-5 py-3.5 bg-white/10 border border-white/20 focus:border-lime-400 rounded-2xl outline-none text-white placeholder:text-white/50">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-slate-300 mb-1.5">Project Description</label>
+                        <textarea id="message" rows="5" placeholder="Tell us about your project — style preferences, address, any questions..." required
+                                  class="w-full px-5 py-3.5 bg-white/10 border border-white/20 focus:border-lime-400 rounded-3xl outline-none resize-y text-white placeholder:text-white/50"></textarea>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="w-full py-4 bg-lime-500 hover:bg-lime-600 transition-all text-white font-bold text-xl rounded-3xl flex items-center justify-center gap-x-3 shadow-xl">
+                        <i class="fa-brands fa-whatsapp mr-2"></i> 
+                        Send via WhatsApp →
+                    </button>
+                    
+                    <p class="text-xs text-slate-400 mt-4 text-center">We'll reply on WhatsApp or call you back — whichever you prefer.</p>
+                </form>
+            </div>
         </div>
     </section>
 
@@ -402,7 +493,7 @@
                 </div>
                 
                 <div class="text-sm">
-                    <a href="tel:12679053490" class="hover:text-white transition-colors">(267) 905-3490</a><br>
+                    <a href="tel:+12679053490" class="hover:text-white transition-colors">(267) 905-3490</a><br>
                     Columbus, Ohio
                 </div>
             </div>
@@ -414,6 +505,16 @@
         </div>
     </footer>
 
+    <!-- FLOATING WHATSAPP FAB -->
+    <a href="https://wa.me/12679053490?text=Hi!%20I%27d%20like%20a%20free%20quote%20for%20a%20custom%20cedar%20mailbox." 
+       target="_blank"
+       class="whatsapp-fab group"
+       aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp text-white text-3xl"></i>
+        <span class="tooltip">Chat on WhatsApp</span>
+    </a>
+
+    <!-- Success Modal -->
     <div id="success-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-[100]">
         <div class="bg-white text-slate-900 rounded-3xl max-w-md mx-4 p-9 text-center">
             <div class="mx-auto w-16 h-16 bg-lime-100 rounded-full flex items-center justify-center mb-6">
@@ -566,7 +667,7 @@
             initMobileMenu();
             initAnimations();
             
-            console.log('%c[Next Finish] All copy changes applied successfully', 'color:#64748b');
+            console.log('%c[Next Finish] Contact section updated with multiple options + FAB', 'color:#64748b');
         }
         
         window.onload = initializeWebsite;
