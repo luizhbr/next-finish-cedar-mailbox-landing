@@ -145,10 +145,60 @@
         .whatsapp-fab:hover .tooltip {
             opacity: 1;
         }
+
+        /* Contact section harmonization */
+        .contact-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .contact-card .icon-wrapper {
+            width: 56px;
+            height: 56px;
+            background-color: rgba(255,255,255,0.15);
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+        
+        .contact-card h3 {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+            font-weight: 700;
+            color: #0F172A;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        
+        .contact-card p {
+            flex: 1;
+            color: #475569;
+            text-align: center;
+        }
+        
+        .contact-card .btn {
+            margin-top: auto;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        
+        @media (min-width: 768px) {
+            .contact-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+            }
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 overflow-x-hidden">
-    <!-- NAVBAR -->
+    <!-- NAVBAR (unchanged) -->
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex items-center justify-between h-20">
@@ -190,7 +240,7 @@
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO (unchanged) -->
     <header class="pt-20 bg-slate-900 text-white wood-texture relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 pt-16 pb-20 md:pt-20 md:pb-24 relative z-10">
             <div class="max-w-3xl">
@@ -224,7 +274,7 @@
         </div>
     </header>
 
-    <!-- ABOUT -->
+    <!-- ABOUT (unchanged) -->
     <section id="about" class="max-w-7xl mx-auto px-6 py-20">
         <div class="grid md:grid-cols-12 gap-x-12 items-center">
             <div class="md:col-span-5 mb-12 md:mb-0">
@@ -239,7 +289,7 @@
         </div>
     </section>
 
-    <!-- SERVICES -->
+    <!-- SERVICES (unchanged) -->
     <section id="services" class="bg-white py-20 border-t border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-14">
@@ -283,7 +333,7 @@
         </div>
     </section>
 
-    <!-- GALLERY -->
+    <!-- GALLERY (unchanged) -->
     <section id="work" class="max-w-7xl mx-auto px-6 py-20">
         <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-10">
             <div>
@@ -315,7 +365,7 @@
         </div>
     </section>
 
-    <!-- PROCESS -->
+    <!-- PROCESS (unchanged) -->
     <section id="process" class="bg-white py-20 border-t border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-14">
@@ -339,7 +389,6 @@
                     <h4 class="font-semibold text-xl mb-3">See it before we build it</h4>
                     <p class="text-slate-600">Within days, you receive a photorealistic render of your mailbox placed in front of your actual home. Approve it, tweak it, make it yours.</p>
                 </div>
-                
                 <div class="depth-card p-8 text-center">
                     <div class="mx-auto w-16 h-16 bg-lime-100 rounded-2xl flex items-center justify-center mb-6">
                         <span class="text-lime-600 text-3xl font-bold">03</span>
@@ -359,7 +408,7 @@
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
+    <!-- TESTIMONIALS (unchanged) -->
     <section class="max-w-5xl mx-auto px-6 py-20">
         <div class="text-center mb-12">
             <div class="text-lime-600 font-semibold tracking-[2px] text-sm mb-3">FROM REAL HOMEOWNERS</div>
@@ -393,60 +442,65 @@
         </div>
     </section>
 
-    <!-- CONTACT SECTION - UPDATED -->
+    <!-- CONTACT SECTION - VISUALLY HARMONIZED -->
     <section id="contact" class="bg-slate-900 text-white py-20 wood-texture">
         <div class="max-w-7xl mx-auto px-6">
             <!-- Header -->
-            <div class="text-center mb-12">
+            <div class="text-center mb-8">
                 <div class="text-lime-400 font-semibold tracking-[2px] text-sm mb-3">3 WAYS TO REACH US</div>
                 <h2 class="text-5xl md:text-6xl font-bold tracking-tighter mb-4">Ready to see how it looks in front of your home?</h2>
                 <p class="text-xl text-slate-300 max-w-2xl mx-auto">Pick the option that's easiest for you. We respond fast — usually same day.</p>
             </div>
 
             <!-- Three Contact Cards -->
-            <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="contact-grid mb-12">
                 <!-- Card 1: Call -->
-                <div class="depth-card p-8 text-center">
-                    <div class="mx-auto w-16 h-16 bg-lime-100 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-phone text-lime-600 text-3xl"></i>
+                <div class="depth-card contact-card p-8">
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-phone text-lime-600 text-[32px]"></i>
                     </div>
-                    <h3 class="font-semibold text-2xl tracking-tight mb-3">Call Us</h3>
-                    <p class="text-slate-600 mb-6">Prefer to talk? Call us directly and we'll answer your questions on the spot.</p>
+                    <h3>Call Us</h3>
+                    <p>Prefer to talk? Call us directly and we'll answer your questions on the spot.</p>
                     <a href="tel:+12679053490" 
-                       class="inline-flex w-full items-center justify-center py-4 bg-lime-500 hover:bg-lime-600 transition-all text-white font-bold text-lg rounded-3xl shadow-lg shadow-lime-500/30">
+                       class="btn inline-flex w-full items-center justify-center py-4 bg-lime-500 hover:bg-lime-600 transition-all text-white font-bold text-lg rounded-3xl shadow-lg shadow-lime-500/30 mt-auto">
                         Call (267) 905-3490
                     </a>
                 </div>
 
                 <!-- Card 2: Text/SMS -->
-                <div class="depth-card p-8 text-center">
-                    <div class="mx-auto w-16 h-16 bg-lime-100 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-comment-dots text-lime-600 text-3xl"></i>
+                <div class="depth-card contact-card p-8">
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-comment-dots text-lime-600 text-[32px]"></i>
                     </div>
-                    <h3 class="font-semibold text-2xl tracking-tight mb-3">Send a Text</h3>
-                    <p class="text-slate-600 mb-6">Quick and easy. Text us from your iPhone or Android — no app needed.</p>
+                    <h3>Send a Text</h3>
+                    <p>Quick and easy. Text us from your iPhone or Android — no app needed.</p>
                     <a href="sms:+12679053490?body=Hi!%20I%27d%20like%20a%20free%20quote%20for%20a%20custom%20cedar%20mailbox." 
-                       class="inline-flex w-full items-center justify-center py-4 bg-lime-500 hover:bg-lime-600 transition-all text-white font-bold text-lg rounded-3xl shadow-lg shadow-lime-500/30">
+                       class="btn inline-flex w-full items-center justify-center py-4 bg-lime-500 hover:bg-lime-600 transition-all text-white font-bold text-lg rounded-3xl shadow-lg shadow-lime-500/30 mt-auto">
                         Text Us Now
                     </a>
                 </div>
 
                 <!-- Card 3: Form -->
-                <div class="depth-card p-8 text-center">
-                    <div class="mx-auto w-16 h-16 bg-lime-100 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-clipboard-list text-lime-600 text-3xl"></i>
+                <div class="depth-card contact-card p-8">
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-clipboard-list text-lime-600 text-[32px]"></i>
                     </div>
-                    <h3 class="font-semibold text-2xl tracking-tight mb-3">Fill Out a Form</h3>
-                    <p class="text-slate-600 mb-6">Tell us about your project and we'll get back to you with a custom quote.</p>
+                    <h3>Fill Out a Form</h3>
+                    <p>Tell us about your project and we'll get back to you with a custom quote.</p>
                     <button onclick="document.getElementById('quote-form-section').scrollIntoView({ behavior: 'smooth' })" 
-                            class="w-full py-4 bg-lime-500 hover:bg-lime-600 transition-all text-white font-bold text-lg rounded-3xl shadow-lg shadow-lime-500/30">
+                            class="btn w-full py-4 bg-lime-500 hover:bg-lime-600 transition-all text-white font-bold text-lg rounded-3xl shadow-lg shadow-lime-500/30 mt-auto">
                         Get My Free Quote
                     </button>
                 </div>
             </div>
 
+            <!-- Divider label -->
+            <div class="text-center mb-6">
+                <p class="uppercase tracking-[0.1em] text-xs text-slate-400">— or tell us more about your project —</p>
+            </div>
+
             <!-- FORM -->
-            <div id="quote-form-section" class="max-w-2xl mx-auto">
+            <div id="quote-form-section" class="max-w-[540px] mx-auto">
                 <form id="quote-form" onsubmit="handleQuoteSubmit(event)" class="bg-white/5 backdrop-blur border border-white/10 p-8 md:p-10 rounded-3xl">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                         <div>
@@ -505,7 +559,7 @@
         </div>
     </footer>
 
-    <!-- FLOATING WHATSAPP FAB -->
+    <!-- FLOATING WHATSAPP FAB (unchanged) -->
     <a href="https://wa.me/12679053490?text=Hi!%20I%27d%20like%20a%20free%20quote%20for%20a%20custom%20cedar%20mailbox." 
        target="_blank"
        class="whatsapp-fab group"
@@ -514,7 +568,7 @@
         <span class="tooltip">Chat on WhatsApp</span>
     </a>
 
-    <!-- Success Modal -->
+    <!-- Success Modal (unchanged) -->
     <div id="success-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-[100]">
         <div class="bg-white text-slate-900 rounded-3xl max-w-md mx-4 p-9 text-center">
             <div class="mx-auto w-16 h-16 bg-lime-100 rounded-full flex items-center justify-center mb-6">
@@ -667,7 +721,7 @@
             initMobileMenu();
             initAnimations();
             
-            console.log('%c[Next Finish] Contact section updated with multiple options + FAB', 'color:#64748b');
+            console.log('%c[Next Finish] Contact section visually harmonized', 'color:#64748b');
         }
         
         window.onload = initializeWebsite;
